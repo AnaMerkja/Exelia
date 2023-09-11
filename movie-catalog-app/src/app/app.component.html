@@ -1,0 +1,18 @@
+<div class="container">
+  <header>
+    <div class="header-content">
+      <h1>Movie Catalog</h1>
+    </div>
+  </header>
+  <main>
+    <input type="text" [(ngModel)]="searchTerm" (input)="searchMovies()" placeholder="Search for a movie">
+    <div class="movies">
+      <div *ngFor="let movie of movies"(click)="openMovieDetails(movie.imdbID)" class="movie">
+        <img [src]="movie.Poster === 'N/A' ? 'no-poster.jpg' : movie.Poster" [alt]="movie.Title">
+        <h2>{{ movie.Title }}</h2>
+        <p>{{ movie.Plot }}</p>
+        <button class="button" (click)="openMovieDetails(movie.imdbID)">Learn More</button>
+      </div>
+    </div>
+  </main>
+</div>
